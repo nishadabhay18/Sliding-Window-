@@ -14,14 +14,17 @@ class Solution {
         return count;
     }
 
-    // TC-> O(n) SC-> O(1)
-    public int numOfSubarrays(int[] arr, int k, int threshold) {
-        int sum = 0, count = 0;
-        int target = k * threshold;
-        for(int i=0; i<arr.length; i++){
-            sum += arr[i];
-            if(i >= k) sum -= arr[i - k];
-            if(i >= k - 1 && sum >= target) count++;
+    class Solution {
+        // TC-> O(n) SC-> O(1)
+        public int numOfSubarrays(int[] arr, int k, int threshold) {
+            int n = arr.length;
+            int left=0, count=0, sum=0;
+            for(int right=0; right<n; right++){
+                int ele = arr[right];
+                sum += ele;
+                if(right-left+1 > k) sum -= arr[left++];
+                if(right-left+1 == k && sum >= k * threshold) count++;
+            }
+            return count;
         }
-        return count;
     }
