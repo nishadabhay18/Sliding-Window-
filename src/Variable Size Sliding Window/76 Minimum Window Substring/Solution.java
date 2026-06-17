@@ -1,5 +1,5 @@
 class Solution {
-    // TC-> O(n) SC-> O(1)
+    // TC-> O(n) SC-> O(1) use constant space bcoz can only contains
     public HashMap<Character, Integer> makeFreq(String str){
         int n = str.length();
         HashMap<Character, Integer> mp = new HashMap<>();
