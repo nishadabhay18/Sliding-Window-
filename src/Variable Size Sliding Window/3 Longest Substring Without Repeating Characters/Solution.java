@@ -8,14 +8,8 @@ class Solution {
             char ch = str.charAt(right);
             if(!mp.containsKey(ch)) mp.put(ch, 1);
             else{
-                while(ch != str.charAt(left)){
-                    len = right-left;
-                    maxLen = Math.max(len, maxLen);
-                    mp.remove(str.charAt(left));
-                    left++;
-                }
-                mp.remove(str.charAt(left));
-                left++;
+                while(ch != str.charAt(left)) mp.remove(str.charAt(left++));
+                mp.remove(str.charAt(left++));
             }
             mp.put(ch, 1);
             maxLen = Math.max(maxLen, mp.size());
